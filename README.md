@@ -3,7 +3,18 @@
 [![npm version](https://img.shields.io/npm/v/select2-vue3.svg)](https://www.npmjs.com/package/select2-vue3) [![npm downloads](https://img.shields.io/npm/dm/select2-vue3.svg)](https://www.npmjs.com/package/select2-vue3) [![Vue 3 Compatible](https://img.shields.io/badge/vue-3.x-brightgreen.svg)](https://vuejs.org/) [![Types Included](https://img.shields.io/npm/types/select2-vue3.svg)](https://www.npmjs.com/package/select2-vue3) [![](https://data.jsdelivr.com/v1/package/npm/select2-vue3/badge?style=rounded)](https://www.jsdelivr.com/package/npm/select2-vue3)
 
 💡 A lightweight Vue 3 wrapper for jQuery Select2 with Bootstrap 5.
-Support for CDN or bundled usage, v-model binding, custom events, async search, Vuex, and full TypeScript support.
+Support for CDN or bundled usage, v-model binding, custom events, async search, Vuex, and full TypeScript support. And more!
+
+### Changes
+- **v1.0.0**: Initial release with TypeScript support and CDN usage.
+- **v1.0.1**: Added Vuex support and improved documentation.
+- **v1.0.2**: Fixed async search issue and improved performance.
+- **v1.0.3**: Added custom events and improved TypeScript type definitions.
+- **v1.0.4**: Fixed CDN usage issue and improved documentation.
+- **v1.0.5**: improved performance.
+- **v1.0.6**: Fixed async search issue by Vuex and improved TypeScript type definitions.
+- **v1.0.7**: Improved documentation.
+- **v1.0.8**: Fix options by default, and the options can be customized. It can also be used with Vuex. Use options by array of objects or array of strings.
 
 ---
 
@@ -31,8 +42,8 @@ npm install select2-vue3
 ### With CDN
 
 ```bash
-<link href="https://cdn.jsdelivr.net/npm/select2-vue3@1.0.7/dist/select2-vue3.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2-vue3@1.0.7/dist/select2-vue3.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2-vue3@1.0.8-rc0/dist/select2-vue3.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2-vue3@1.0.8-rc0/dist/select2-vue3.min.js"></script>
 ```
 
 ## 🧩 Usage
@@ -257,20 +268,38 @@ export default defineComponent({
 
 # How to use the props?
 
-| Prop Name       | Type                          | Default             | Required | Description |
-|-----------------|-------------------------------|---------------------|----------|-------------|
-| `id`            | `String`                      | `'select2'`         | ❌       | HTML ID of the component. |
-| `name`          | `String`                      | `'select2'`         | ❌       | Name attribute for the form input. |
-| `options`       | `Array`                       | —                   | ✅       | List of dropdown options. |
-| `modelValue`    | `String`, `Number`, `Array`   | `null`              | ❌       | Selected value(s), supports v-model. |
-| `placeholder`   | `String`                      | `'Select an option'`| ❌       | Placeholder text when nothing is selected. |
-| `multiple`      | `Boolean`                     | `false`             | ❌       | Enable multiple selection. |
-| `disabled`      | `Boolean`                     | `false`             | ❌       | Disable the dropdown. |
-| `required`      | `Boolean`                     | `false`             | ❌       | Mark field as required. |
-| `valueKey`      | `String`                      | `'id'`              | ❌       | Key used as the option value. |
-| `textKey`       | `String`                      | `'text'`            | ❌       | Key used as the option display text. |
-| `config`        | `Object`                      | `() => ({})`        | ❌       | Additional Select2 configuration. |
-| `fetchOnSearch` | `Boolean`                     | `false`             | ❌       | Enable fetching options via API when searching. |
+| Name          | Type                 | Default          | Required | Description                                                  |
+|---------------|----------------------|------------------|----------|--------------------------------------------------------------|
+| `id`          | `String`             | `'select2'`      | No       | ID attribute for the `<select>` element                      |
+| `name`        | `String`             | `'select2'`      | No       | Name attribute for the `<select>` element                    |
+| `options`     | `Array`              | —                | Yes      | Array of options to display. Can be array of strings, numbers, or objects |
+| `modelValue`  | `String`, `Number`, `Array` | `null`       | No       | Selected value(s) of the select                               |
+| `placeholder` | `String`             | `'Select an option'` | No    | Placeholder text when no option is selected                   |
+| `multiple`    | `Boolean`            | `false`          | No       | Enable multiple selections                                    |
+| `disabled`    | `Boolean`            | `false`          | No       | Disable the select input                                      |
+| `required`    | `Boolean`            | `false`          | No       | Mark the select as required                                   |
+| `valueKey`    | `String`             | `'id'`           | No       | Key name to use for option values when options are objects   |
+| `textKey`     | `String`             | `'text'`         | No       | Key name to use for option display text when options are objects |
+| `config`      | `Object`             | `{}`             | No       | Additional Select2 configuration options                      |
+| `fetchOnSearch` | `Boolean`           | `false`          | No       | Enable AJAX fetching when searching                           |
+| `loadingSelect` | `Boolean`           | `undefined`      | No       | Indicates loading state for fetchOnSearch                     |
+
+# Emits
+
+| Event             | Payload                   | Description                                         |
+|-------------------|---------------------------|-----------------------------------------------------|
+| `update:modelValue` | Selected value(s)         | Emits when the selected value(s) change             |
+| `change`          | Selected value(s)          | Emits on select value change                          |
+| `select`          | Selected option data       | Triggered on Select2's select event                  |
+| `closing`         | Event data                 | Triggered when the dropdown is closing               |
+| `close`           | Event data                 | Triggered after the dropdown closes                  |
+| `opening`         | Event data                 | Triggered when the dropdown is opening               |
+| `open`            | Event data                 | Triggered after the dropdown opens                   |
+| `clearing`        | Event data                 | Triggered when selection is about to be cleared      |
+| `clear`           | Event data                 | Triggered after selection is cleared                  |
+| `search`          | `(term: String, page: Number)` | Triggered when user searches (for fetchOnSearch)    |
+| `loadMore`        | —                         | Triggered on infinite scroll load more event         |
+
 
 
 ## 🚀 About Me
