@@ -1,15 +1,15 @@
 import type { Component } from 'vue'
 
-export interface Select2Option {
+export interface ChoicesVueOption {
   [key: string]: any
 }
 
-export interface Select2Vue3Props {
+export interface ChoicesVue3Props {
   id?: string
   name?: string
   placeholder?: string
-  options: Select2Option[]
-  modelValue?: string | number | (string | number)[]
+  options: ChoicesVueOption[]
+  modelValue?: string | number | (string | number | ChoicesVueOption)[]
   multiple?: boolean
   disabled?: boolean
   required?: boolean
@@ -17,6 +17,7 @@ export interface Select2Vue3Props {
   textKey?: string
   config?: Record<string, any>
   fetchOnSearch?: boolean
+  loadingSelect?: boolean
 }
 
-export declare const Select2Vue3: Component
+export declare const ChoicesVue3: Component
