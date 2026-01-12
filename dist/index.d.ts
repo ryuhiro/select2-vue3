@@ -7,6 +7,7 @@ export interface ChoicesVueOption {
 export interface ChoicesVue3Props {
   id?: string
   name?: string
+  class?: string
   placeholder?: string
   options: ChoicesVueOption[]
   modelValue?: string | number | (string | number | ChoicesVueOption)[]

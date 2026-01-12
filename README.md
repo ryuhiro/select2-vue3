@@ -15,6 +15,7 @@ Support for CDN or bundled usage, v-model binding, custom events, async search, 
 - **v1.0.6**: Fixed async search issue by Vuex and improved TypeScript type definitions.
 - **v1.0.7**: Improved documentation.
 - **v1.0.8**: Fix options by default, and the options can be customized. It can also be used with Vuex. Use options by array of objects or array of strings.
+- **v1.0.9**: Fixed Select2 options not rendering when updated asynchronously (API / pagination). Improved reactivity sync between Vue options and Select2 internal state. Fully compatible with external pagination, search, and loadMore handling.
 
 ---
 
