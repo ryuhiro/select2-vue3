@@ -1,7 +1,7 @@
 {
   "name": "select2-vue3",
   "private": false,
-  "version": "1.0.9",
+  "version": "1.0.10",
   "type": "module",
   "main": "dist/select2-vue3.es.min.js",
   "module": "dist/select2-vue3.es.min.js",
